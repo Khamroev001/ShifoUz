@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import uz.khamroev.screens.SignUpScreen
+import uz.khamroev.screens.SplashScreen
 
 @Composable
 fun NavGraph (navController: NavHostController){
@@ -15,8 +17,9 @@ fun NavGraph (navController: NavHostController){
             SplashScreen(navController)
         }
 
-        composable(route = Screens.Intro.route){
-            IntroScreen(navController)
+        composable(route = Screens.SignUp.route){
+            SignUpScreen(navController)
         }
+
     }
 }
