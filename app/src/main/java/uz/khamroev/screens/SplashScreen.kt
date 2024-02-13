@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -33,7 +34,10 @@ fun SplashScreen(navController: NavHostController) {
         navController.navigate("signup_screen")
     }
 
-    Surface(color = Color.White, modifier = Modifier.padding(0.dp)) {
+    Surface(color = Color.White, modifier = Modifier
+        .padding(0.dp)
+        .fillMaxSize()
+        .paint(painterResource(id = R.drawable.bg))) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -41,21 +45,11 @@ fun SplashScreen(navController: NavHostController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.bg), // Background from drawable
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(0.dp),
-                contentScale = ContentScale.FillBounds
-            )
             Icon(
                 painterResource(id = R.drawable.logo),
                 contentDescription = "User Icon",
-                tint = Color.White,
                 modifier = Modifier.size(64.dp)
             )
-
         }
         }
     }
