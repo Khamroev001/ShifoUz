@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.google.android.gms.wallet.button.ButtonConstants
 import uz.khamroev.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -73,7 +75,7 @@ fun SignUpScreen(navController: NavHostController) {
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp, vertical = 8.dp), label = {
                 if (email_phone_status.value){Text(text = "Phonenumber")}else{
-                    Text(text = "Phonenumber")
+                    Text(text = "Email")
                 }}
                 )
 
@@ -86,18 +88,6 @@ fun SignUpScreen(navController: NavHostController) {
             Text(text = "Another way", fontSize = 20.sp, fontFamily = FontFamily.Serif, modifier = Modifier.clickable {
                 email_phone_status.value=!email_phone_status.value
             })
-
-           
-            Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).background(
-                Color(R.color.green))) {
-
-                Text("Sign Up", color = Color( R.color.white), fontSize = 28.sp)
-            }
-
-            Text(text = "Have an account? Log in", fontSize = 20.sp, fontFamily = FontFamily.Serif, color = Color(R.color.green), modifier = Modifier.clickable {
-                email_phone_status.value=!email_phone_status.value
-            })
-
         }
     }
 }

@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import uz.khamroev.navigation.NavGraph
+import uz.khamroev.screens.HospitalProfile
 import uz.khamroev.ui.theme.ShifoUzTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,8 +26,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                  ) {
                     
-                    val navigation= rememberNavController()
-                    NavGraph(navController = navigation)
+//                    val navigation= rememberNavController()
+//                    NavGraph(navController = navigation)
+
+                    HospitalProfile()
+
 
                   }
             }
