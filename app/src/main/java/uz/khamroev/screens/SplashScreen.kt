@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
 import uz.khamroev.R
+import uz.khamroev.navigation.Screens
 
 
 @Composable
@@ -31,7 +32,7 @@ fun SplashScreen(navController: NavHostController) {
 
     LaunchedEffect(key1 = true){
         delay(3000)
-        navController.navigate("signup_screen")
+        navController.navigate(Screens.Pager.route)
     }
 
     Surface(color = Color.White, modifier = Modifier
