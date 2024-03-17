@@ -27,9 +27,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Create
-import androidx.compose.material3.Card
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -120,6 +118,7 @@ fun HospitalProfile() {
         mutableStateOf(false)
     }
 
+
     //Keladgan malumotlar
     val clinic_logo=R.drawable.logo
     val clinic_poster=R.drawable.ic_launcher_background
@@ -174,7 +173,7 @@ fun HospitalProfile() {
                             .size(45.dp)
                             .background(color = Color.LightGray, shape = CircleShape)
                             .clip(CircleShape)
-                            .clickable {  isLiked.value=!isLiked.value }
+                            .clickable { isLiked.value = !isLiked.value }
                         , contentAlignment = Alignment.Center
                     ) {
                         Image(
@@ -248,14 +247,17 @@ fun HospitalProfile() {
                             )
                             Spacer(modifier = Modifier.width(4.dp))
 
-                            StarRating(starCount = 5, rating = clinic_rating.toFloat())
+                            StarRating(starCount = 5, rating = clinic_rating.toFloat()) {
+
+
+                            }
 
                             Spacer(modifier = Modifier.width(4.dp))
 
-                            Row {
-                                Icon(imageVector = Icons.Default.Create, contentDescription = null)
-                                Text(text = "Add review", fontSize = 20.sp)
-                            }
+//                            Row {
+//                                Icon(imageVector = Icons.Default.Create, contentDescription = null)
+//                                Text(text = "Add review", fontSize = 20.sp)
+//                            }
 
 
 
@@ -265,7 +267,7 @@ fun HospitalProfile() {
 
         }
 
-            Card(
+            ElevatedCard(modifier=
                 Modifier
                     .fillMaxSize()
                     .clip(RoundedCornerShape(32.dp, 32.dp))){
@@ -278,39 +280,21 @@ fun HospitalProfile() {
                 DoctorList(doctorList, selectedService, lazyListState)
             }
 
-
             
             
     }
 }}
 
 
-@Composable
-fun IconWithGrayBackground(iconRes: Int, onClickAction: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .size(45.dp)
-            .background(color = Color.LightGray, shape = CircleShape)
-            .clip(CircleShape)
-            .clickable { onClickAction }
-        , contentAlignment = Alignment.Center
-    ) {
-        Image(
-            painter = painterResource(id = iconRes),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-           alignment =  Alignment.Center,
-        )
-    }
-}
-
 
 @Composable
-fun StarRating(starCount: Int, rating: Float) {
+fun StarRating(starCount: Int, rating: Float, onClickAction: () -> Unit) {
     val fullStars = rating.toInt()
     val hasHalfStar = rating - fullStars >= 0.5f
 
-    Row {
+    Row(Modifier.clickable {
+        onClickAction
+    }){
         repeat(fullStars) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_fullstar),

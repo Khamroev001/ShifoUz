@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import uz.khamroev.navigation.NavGraph
+import uz.khamroev.screens.BookAppointmentView
 import uz.khamroev.screens.HospitalProfile
 import uz.khamroev.ui.theme.ShifoUzTheme
 
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
 //                    val navigation= rememberNavController()
 //                    NavGraph(navController = navigation)
 
-                    HospitalProfile()
+                    BookAppointmentView()
 
 
 
